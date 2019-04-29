@@ -20,6 +20,13 @@ To test the local site:
 
 * http://localhost:3000/welcome/whatever (personal greeting)
 
+* http://localhost:3000/gossip/xxx (individual page for gossip. Also available when clicking "See Gossip" button)
+
+* http://localhost:3000/user/xxx (individual page for user. Also available when clicking user'name on each gossip page)
+
+* http://localhost:3000/tag/xxx (individual page for tag. Also available when clicking on each tag on gossip page)
+
+
 For the moment we have the following tables:
 
 * cities
