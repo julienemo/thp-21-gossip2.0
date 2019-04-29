@@ -8,10 +8,15 @@
     </ul>
   </p>
 </div>
-<div>
-  <p>Have a look at our burning hot GOSSIPS !</p>
-  <% Gossip.all.each do |g|%>
-    <%= User.find(g.user_id).first_name%> says<br>
-    <%= g.content%><br>
+
+<p>Have a look at our burning hot GOSSIPS !</p>
+  <div class = "list">
+  <% Gossip.all.each_with_index do |g,i|%>
+  <% stamp = g.created_at.to_date%>
+    <%=i+1 %>
+    <div class = "timestamp">On <%= stamp.to_date%>, at <%= stamp.to_s(:time)%> </div>
+    <div class = "username"><%= User.find(g.user_id).first_name%> says</div>
+    <div class = "gossip_content"><%= g.content%></div><br>
+
   <% end %>
 </div>
