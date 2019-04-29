@@ -23,11 +23,11 @@
     <p>Have a look at our burning hot GOSSIPS !</p>
     <p>Click on the contect to see the gossip individually</p>
 
-    <div class = "d-flex flex-wrap justify-content-around align-items-around">
+    <div class = "d-flex flex-wrap justify-content-around">
       <% Gossip.all.each do |g| %>
         <% stamp = g.created_at.to_date %>
         <div class="card col-md-3.05" style="width: 250px;">
-          <div class="card-body flex-direction-column">
+          <div class="card-body flex-direction-column justify-content-between">
             <div class= 'col'>
               <h5 class="card-title">"<%= g.content %>"</h5>
               <p  class="card-text">Gossip <%= g.id %></p>
