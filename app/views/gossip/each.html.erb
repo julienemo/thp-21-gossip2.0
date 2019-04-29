@@ -1,42 +1,28 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Gossip Project 2.0</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/team">Team</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/contact">Contact</a>
-      </li>
-    </ul>
+<body>
+  <div class = "body">
+    <h1>Welcome to the Gossip n°<%= @id%></h1>
+    <div>
+      <p>
+        <% gossip = Gossip.all.find(@id)%>
+        <% stamp = gossip.created_at.to_date%>
+        <% tags = gossip.tags.map{|t| t}%>
+        Gossip <%=@id %><br><br>
+          On <%= stamp.to_date%><br><br>
+          <a href = "/user/<%=gossip.user_id%>"><%= User.find(gossip.user_id).first_name%></a> says
+          <%= gossip.content%><br><br>
+          Tags:
+          <%tags.uniq.each do |t|%>
+            <a href = "/tag/<%=t.id %>"><%= t.title%></a>,
+          <%end%>
+      </p>
+    </div>
   </div>
-</nav>
-
-<div class = "body">
-<h1>Welcome to the Tag n°<%= @id%></h1>
-<div>
-<p>
-  <% gossip = Gossip.all.find(@id)%>
-  <% stamp = gossip.created_at.to_date%>
-  <% tags = gossip.tags.map{|t| t}%>
-  Gossip <%=@id %>
-  <div class = "timestamp">On <%= stamp.to_date%>, at <%= stamp.to_s(:time)%> </div>
-  <div class = "username"><a href = "/user/<%=gossip.user_id%>"><%= User.find(gossip.user_id).first_name%></a> says</div>
-  <div class = "gossip_content"><%= gossip.content%></div><br><br>
-  <div class = "tag">Tags:
-    <%tags.uniq.each do |t|%>
-      <a href = "/tag/<%=t.id %>"><%= t.title%></a>,
-    <%end%>
-  </div>
-</p>
-</div>
-</div>
+</body>
