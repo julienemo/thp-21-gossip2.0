@@ -1,4 +1,4 @@
-Project of Julie Kwok et Dhiya Bakache 
+Project of Julie Kwok et Dhiya Bakache
 
 
 Please run the following lines in terminal before testing in console
@@ -9,6 +9,16 @@ Please run the following lines in terminal before testing in console
 
 * $ rails db:seed
 
+
+To test the local site:
+
+* http://localhost:3000/index   (home page)
+
+* http://localhost:3000/team    (team information)
+
+* http://localhost:3000/contact (team contact)
+
+* http://localhost:3000/welcome/whatever (personal greeting)
 
 For the moment we have the following tables:
 
