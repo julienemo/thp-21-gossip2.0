@@ -1,24 +1,29 @@
-# README
+Project of Julie Kwok et Dhyia Bakache
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Please run the following lines in terminal before testing in console
 
-* Ruby version
+* $ bundle install
 
-* System dependencies
+* $ rails db:migrate
 
-* Configuration
+* $ rails db:seed
 
-* Database creation
 
-* Database initialization
+For the moment we have the following tables:
 
-* How to run the test suite
+* cities
 
-* Services (job queues, cache servers, search engines, etc.)
+* users
 
-* Deployment instructions
+* gossips
 
-* ...
+* tags
+
+* messages
+
+* join table gossip tag
+
+* join table message recipient
+
+There is currently no data validation
