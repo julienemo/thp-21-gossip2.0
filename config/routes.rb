@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
+  get '/contact', to: 'static_pages#contact'
 
-  get 'welcome/show'
-  get 'static_pages/contact'
-  root 'static_page_controller#home'
+  get '/team', to: 'static_pages#team'
 
-  get '/static_pages/contact', to: 'static_pages#contact'
-
-  get '/static_pages/team', to: 'static_pages#team'
-
+  get '/index', to: 'static_pages#index'
 end
