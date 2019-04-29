@@ -8,7 +8,7 @@
 
 <body>
   <div class = "body">
-    <h1>Welcome to the Gossip n°<%= @id%></h1>
+    <h1>Welcome to Gossip n°<%= @id%></h1>
     <div>
       <p>
         <% gossip = Gossip.all.find(@id)%>
@@ -17,7 +17,7 @@
         Gossip <%=@id %><br><br>
           On <%= stamp.to_date%><br><br>
           <a href = "/user/<%=gossip.user_id%>"><%= User.find(gossip.user_id).first_name%></a> says
-          <%= gossip.content%><br><br>
+          "<%= gossip.content%>"<br><br>
           Tags:
           <%tags.uniq.each do |t|%>
             <a href = "/tag/<%=t.id %>"><%= t.title%></a>,
