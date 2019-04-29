@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get 'welcome/show'
+  get 'static_pages/contact'
+  root 'static_page_controller#home'
+
+  get '/static_pages/contact', to: 'static_pages#contact'
+
+  get '/static_pages/team', to: 'static_pages#team'
+
 end
