@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get '/team', to: 'static_pages#team'
 
   get '/index', to: 'static_pages#index'
+
+  get '/welcome/:id', to: 'welcome#show'
 end
