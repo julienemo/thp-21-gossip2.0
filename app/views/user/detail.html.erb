@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css">
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Gossip Project 2.0</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,6 +21,7 @@
   </div>
 </nav>
 
+<div class = "body">
 <h1>Personal detail of User n°<%= @id%></h1>
 <div>
 <p>
@@ -28,3 +31,4 @@
   Location: <%= u.city.name%><br>
   Gossips: <%= u.gossips.length%>
 </p>
+</div>

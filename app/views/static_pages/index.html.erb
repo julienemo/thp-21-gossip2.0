@@ -1,43 +1,69 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Gossip Project 2.0</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css">
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/team">Team</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/contact">Contact</a>
-      </li>
-    </ul>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Gossip Project 2.0</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/index">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class = "body">
+    <h1>Welcome to the Gossip Project 2.0</h1>
+    <div>
+      <p>New features:
+        <ul>
+          <li>We are now on Postgresql</li>
+          <li>We have a seeded db</li>
+          <li>We are also on rails</li>
+        </ul>
+      </p>
+    </div>
+
+    <p>Have a look at our burning hot GOSSIPS !</p>
+    <p>Click on the contect to see the gossip individually</p>
+
+    <div class = "d-flex flex-wrap space-between">
+      <% Gossip.all.each do |g| %>
+        <% stamp = g.created_at.to_date %>
+        <div class="card col-md-3.2" style="width: 300px;">
+          <div class="card-body flex-direction-column">
+            <div class= 'col'>
+              <h5 class="card-title">"<%= g.content %>"</h5>
+              <p  class="card-text">Gossip <%= g.id %></p>
+            </div>
+            <div class = 'col'>
+              <a href="/gossip/<%=g.id %>" class="btn btn-primary">See Gossip</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-</nav>
 
-<h1>Welcome to the Gossip Project 2.0</h1>
-<div>
-  <p>New features:
-    <ul>
-      <li>We are now on Postgresql</li>
-      <li>We have a seeded db</li>
-      <li>We are also on rails</li>
-    </ul>
-  </p>
-</div>
 
-<p>Have a look at our burning hot GOSSIPS !</p>
-<p>Click on the contect to see the gossip individually</p>
-  <div class = "list">
-  <% Gossip.all.each do |g|%>
-  <% stamp = g.created_at.to_date%>
-    <%=g.id %>
-    <div class = "username"><%= User.find(g.user_id).first_name%> says</div>
-    <div class = "gossip_content"><a href="/gossip/<%=g.id %>"><%= g.content%></a></div><br>
 
-  <% end %>
-</div>
+</body>
