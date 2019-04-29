@@ -1,7 +1,63 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Message.destroy_all
+JoinTableGossipTag.destroy_all
+Tag.destroy_all
+Gossip.destroy_all
+User.destroy_all
+City.destroy_all
+puts "Previous records cleared."
+
+10.times do
+  City.create!(name: Faker::Address.city, zip_code:Faker::Address.zip_code)
+end
+puts "10 fakes cities generated."
+
+
+50.times do
+  User.create!(email: Faker::Internet.email, city_id: City.all.sample.id)
+end
+puts "50 fake user profiles generated."
+
+users = User.all.map{|u| u.id}
+users.each do |u|
+  5.times do
+    Gossip.create!(user_id: u,
+    content: Faker::Lorem.sentence,
+    title: Faker::Book.title)
+  end
+end
+puts "5 fake gossips generated per user."
+
+
+10.times do
+  Tag.create(title: Faker::Book.title, color:Faker::Color.color_name)
+end
+puts "#{Tag.all.length} fake tags generated"
+
+tags = Tag.all.map{|t| t.id}
+tags.each do |t|
+  5.times do
+    JoinTableGossipTag.create(gossip_id: Gossip.all.sample.id, tag_id: t)
+  end
+end
+puts "5 fake association gossip-tag generated per tag"
+
+
+users.each do |u|
+  5.times do
+    Message.create!(sender_id: u,
+    content: Faker::Lorem.sentence)
+  end
+end
+puts "5 fake messages generated from per user."
+
+messages = Message.all.map{|m| m.id}
+messages.each do |m|
+  3.times do
+    JoinTableMessageRecipient.create!(
+    message_id: m,
+    recipient_id: users.sample,
+    content: Faker::Lorem.sentence
+    )
+  end
+end
+puts "3 fake recipients generated per message"
