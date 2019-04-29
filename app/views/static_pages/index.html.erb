@@ -10,10 +10,10 @@
         <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./team">Team</a>
+        <a class="nav-link" href="/team">Team</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./contact">Contact</a>
+        <a class="nav-link" href="/contact">Contact</a>
       </li>
     </ul>
   </div>
@@ -31,13 +31,13 @@
 </div>
 
 <p>Have a look at our burning hot GOSSIPS !</p>
+<p>Click on the contect to see the gossip individually</p>
   <div class = "list">
-  <% Gossip.all.each_with_index do |g,i|%>
+  <% Gossip.all.each do |g|%>
   <% stamp = g.created_at.to_date%>
-    <%=i+1 %>
-    <div class = "timestamp">On <%= stamp.to_date%>, at <%= stamp.to_s(:time)%> </div>
+    <%=g.id %>
     <div class = "username"><%= User.find(g.user_id).first_name%> says</div>
-    <div class = "gossip_content"><%= g.content%></div><br>
+    <div class = "gossip_content"><a href="/gossip/<%=g.id %>"><%= g.content%></a></div><br>
 
   <% end %>
 </div>

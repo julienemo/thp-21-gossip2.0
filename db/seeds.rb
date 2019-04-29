@@ -34,13 +34,13 @@ puts "5 fake gossips generated per user."
 end
 puts "#{Tag.all.length} fake tags generated"
 
-tags = Tag.all.map{|t| t.id}
-tags.each do |t|
-  5.times do
-    JoinTableGossipTag.create(gossip_id: Gossip.all.sample.id, tag_id: t)
+gossips = Gossip.all.map{|g| g.id}
+gossips.each do |g|
+  3.times do
+    JoinTableGossipTag.create(gossip_id: g, tag_id: Tag.all.sample.id)
   end
 end
-puts "5 fake association gossip-tag generated per tag"
+puts "5 fake association gossip-tag generated per gossip"
 
 
 users.each do |u|

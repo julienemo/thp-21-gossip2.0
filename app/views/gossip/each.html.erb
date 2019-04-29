@@ -19,6 +19,20 @@
   </div>
 </nav>
 
-<h1>Meet your gossiping team:</h1>
-<p><a href = "http://github.com/dhiyabak">Mr Dhiya Bakache</a></p>
-<p><a href = "http://github.com/julienemo">Mme Julie KWok</a></p>
+<h1>Welcome to the Tag n°<%= @id%></h1>
+<div>
+<p>
+  <% gossip = Gossip.all.find(@id)%>
+  <% stamp = gossip.created_at.to_date%>
+  <% tags = gossip.tags.map{|t| t}%>
+  Gossip <%=@id %>
+  <div class = "timestamp">On <%= stamp.to_date%>, at <%= stamp.to_s(:time)%> </div>
+  <div class = "username"><%= User.find(gossip.user_id).first_name%> says</div>
+  <div class = "gossip_content"><%= gossip.content%></div><br><br>
+  <div class = "tag">Tags:
+    <%tags.uniq.each do |t|%>
+      <a href = "/tag/<%=t.id %>"><%= t.title%></a>,
+    <%end%>
+  </div>
+</p>
+</div>
