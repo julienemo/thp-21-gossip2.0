@@ -27,7 +27,7 @@
   <% tags = gossip.tags.map{|t| t}%>
   Gossip <%=@id %>
   <div class = "timestamp">On <%= stamp.to_date%>, at <%= stamp.to_s(:time)%> </div>
-  <div class = "username"><%= User.find(gossip.user_id).first_name%> says</div>
+  <div class = "username"><a href = "/user/<%=gossip.user_id%>"><%= User.find(gossip.user_id).first_name%></a> says</div>
   <div class = "gossip_content"><%= gossip.content%></div><br><br>
   <div class = "tag">Tags:
     <%tags.uniq.each do |t|%>
