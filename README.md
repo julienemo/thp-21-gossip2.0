@@ -1,4 +1,4 @@
-Project of Julie Kwok et Dhyia Bakache
+Project of Julie Kwok et Dhiya Bakache 
 
 
 Please run the following lines in terminal before testing in console
