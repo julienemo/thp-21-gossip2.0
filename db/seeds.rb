@@ -1,3 +1,6 @@
+# depending tables need to be destroyed BEFORE depended tables
+# join tables always destroyed before tables to which they belong
+
 JoinTableMessageRecipient.destroy_all
 JoinTableGossipTag.destroy_all
 Message.destroy_all
