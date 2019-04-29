@@ -1,5 +1,6 @@
-Message.destroy_all
+JoinTableMessageRecipient.destroy_all
 JoinTableGossipTag.destroy_all
+Message.destroy_all
 Tag.destroy_all
 Gossip.destroy_all
 User.destroy_all
@@ -13,7 +14,7 @@ puts "10 fakes cities generated."
 
 
 50.times do
-  User.create!(email: Faker::Internet.email, city_id: City.all.sample.id)
+  User.create!(email: Faker::Internet.email, first_name: Faker::Name.first_name, city_id: City.all.sample.id)
 end
 puts "50 fake user profiles generated."
 

@@ -1,2 +1,17 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+<h1>Welcome to the Gossip Project 2.0</h1>
+<div>
+  <p>New features:
+    <ul>
+      <li>We are now on Postgresql</li>
+      <li>We have a seeded db</li>
+      <li>We are also on rails</li>
+    </ul>
+  </p>
+</div>
+<div>
+  <p>Have a look at our burning hot GOSSIPS !</p>
+  <% Gossip.all.each do |g|%>
+    <%= User.find(g.user_id).first_name%> says<br>
+    <%= g.content%><br>
+  <% end %>
+</div>
