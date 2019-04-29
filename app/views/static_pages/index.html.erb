@@ -4,33 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css">
 
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Gossip Project 2.0</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/index">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/team">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
   <div class = "body">
     <h1>Welcome to the Gossip Project 2.0</h1>
     <div>
@@ -46,10 +23,10 @@
     <p>Have a look at our burning hot GOSSIPS !</p>
     <p>Click on the contect to see the gossip individually</p>
 
-    <div class = "d-flex flex-wrap space-between">
+    <div class = "d-flex flex-wrap justify-content-around align-items-around">
       <% Gossip.all.each do |g| %>
         <% stamp = g.created_at.to_date %>
-        <div class="card col-md-3.2" style="width: 300px;">
+        <div class="card col-md-3.05" style="width: 250px;">
           <div class="card-body flex-direction-column">
             <div class= 'col'>
               <h5 class="card-title">"<%= g.content %>"</h5>
@@ -63,7 +40,4 @@
       <% end %>
     </div>
   </div>
-
-
-
 </body>
