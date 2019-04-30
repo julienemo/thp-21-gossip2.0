@@ -5,6 +5,8 @@ Please run the following lines in terminal before testing in console
 
 * $ bundle install
 
+* $ rails db:create
+
 * $ rails db:migrate
 
 * $ rails db:seed
