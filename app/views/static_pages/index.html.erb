@@ -20,8 +20,8 @@
       </p>
     </div>
 
-    <p>Have a look at our burning hot GOSSIPS !</p>
-
+    <p>Have a look at our <strong><%= Gossip.all.length%></strong> burning hot GOSSIPS or <a href="/gossips/new">create one of your own</a>!</p>
+    <p><br><br></p>
     <div class = "d-flex flex-wrap flex-wrap-reverse justify-content-around">
       <% Gossip.all.each do |g| %>
         <% stamp = g.created_at.to_date %>
@@ -38,7 +38,7 @@
             <!--therefore aligning postions of all buttons-->
             <!--for other alignments go check application.css-->
             <div class = 'col flex-grow-0'>
-              <a href="/gossip/<%=g.id %>" class="btn btn-primary w-100">See Gossip</a>
+              <a href="/gossips/<%=g.id %>" class="btn btn-primary w-100">See Gossip</a>
             </div>
           </div>
         </div>
