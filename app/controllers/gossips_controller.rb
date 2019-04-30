@@ -6,9 +6,10 @@ class GossipsController < ApplicationController
     id = User.last.id
     @gossip = Gossip.new(title: params[:title], user_id: id, content: params[:content])
     if @gossip.save
-      flash[:dark]
+      flash[:success] = "Gossip created! Yours is the best!"
       redirect_to "/index"
     else
+      flash[:danger] = "Creation failed. Did you check all the conditions?"
       render "new"
     end
   end
