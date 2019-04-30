@@ -22,7 +22,7 @@
 
     <p>Have a look at our burning hot GOSSIPS !</p>
 
-    <div class = "d-flex flex-wrap justify-content-around">
+    <div class = "d-flex flex-wrap flex-wrap-reverse justify-content-around">
       <% Gossip.all.each do |g| %>
         <% stamp = g.created_at.to_date %>
         <div class="card col-md-3.05">
