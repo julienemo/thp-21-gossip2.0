@@ -29,7 +29,7 @@ users.each do |u|
     title: Faker::Book.title)
   end
 end
-puts "5 fake gossips generated per user."
+puts "#{Gossip.all.length} fake gossips generated."
 
 
 10.times do
