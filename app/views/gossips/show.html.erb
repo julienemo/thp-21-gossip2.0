@@ -16,11 +16,11 @@
         <% tags = gossip.tags.map{|t| t}%>
         Gossip <%=@id %><br><br>
           On <%= stamp.to_date%><br><br>
-          <a href = "/user/<%=gossip.user_id%>"><%= User.find(gossip.user_id).first_name%></a> says
+          <a href = "/users/<%=gossip.user_id%>"><%= User.find(gossip.user_id).first_name%></a> says
           "<%= gossip.content%>"<br><br>
           Tags:
           <%tags.uniq.each do |t|%>
-            <a href = "/tag/<%=t.id %>"><%= t.title%></a>,
+            <a href = "/tags/<%=t.id %>"><%= t.title%></a>,
           <%end%>
       </p>
     </div>
