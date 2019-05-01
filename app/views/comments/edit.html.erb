@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--Bootstrap theme link and navbar in layouts/application.html.erb-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+  <div class = "body">
+    <div>
+      <h1>Modify comment n°<%= @id%></h1>
+      <%= form_tag gossip_comment_path(id: @id , gossip_id: params[:gossip_id]), method: "put" do %>
+        <%= label_tag 'Leave a comment:' %><br />
+        <%= text_area_tag 'c_content', Comment.find(@id).content, class: 'form-control'%>
+        <br /> <br />
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <%= submit_tag "Submit", class: 'btn btn-primary' %>
+      <% end %>
+      <br/><br/>
+    </div>
+  </div>
+</body>
