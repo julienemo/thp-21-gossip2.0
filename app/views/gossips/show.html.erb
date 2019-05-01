@@ -28,5 +28,13 @@
     </div>
     <p>Not exactly this? Update <a href="<%= edit_gossip_path %>">here</a>!
     </p>
+    <p>Outrageously irrelevant?
+      
+      <!--Every resource I found online uses tag, dunno how it looks like without-->
+      <!--the method: :delete stuff works with js. I had accidentally cleared the application js so it took a while-->
+      <!--Normally gossips have associated join tables and comments-->
+      <!--had to add dependent: :destroy to avoid ugly red error messages-->
+      Delete <%= link_to 'here', gossip_path(@id), method: :delete, data: { confirm: 'Are you sure?' } %>!
+    </p>
   </div>
 </body>

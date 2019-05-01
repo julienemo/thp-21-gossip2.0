@@ -1,4 +1,6 @@
 class GossipsController < ApplicationController
+  before_action :get_id
+
   def new
   end
 
@@ -15,7 +17,6 @@ class GossipsController < ApplicationController
   end
 
   def update
-    @id = params[:id]
     @gossip = Gossip.find(@id)
     if @gossip.update(title: params[:title], content: params[:content])
       flash[:success] = "Gossip updated! Thank you for setting things right!"
@@ -29,14 +30,21 @@ class GossipsController < ApplicationController
   end
 
   def edit
-    @id = params[:id].to_i
     @gossip = Gossip.find(@id)
   end
 
   def destroy
+    Gossip.find(@id).destroy
+    flash[:success] = "Gossip #{@id} deleted."
+    redirect_to "/index"
   end
 
   def show
+  end
+
+  private
+
+  def get_id
     @id = params[:id].to_i
   end
 end
