@@ -9,16 +9,18 @@
 <body>
   <div class = "body">
     <h1>Welcome to Gossip n°<%= @id%></h1><br /><br />
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 50%;">
       <% gossip = Gossip.all.find(@id)%>
       <% user = User.find(gossip.user_id)%>
       <% stamp = gossip.created_at.to_date%>
       <% tags = gossip.tags.map{|t| t}%>
       <div class="card-header">
-        From
-        <a href = "/users/<%=gossip.user_id%>"><%= user.first_name%></a>
+        <a href = "/users/<%=gossip.user_id%>">
+          <%= user.first_name%> <%= user.last_name%><%= user.age%>
+        </a>( yo)
         of
-        <a href = #><%= City.find(user.city_id).name%></a>:
+        <a href = #><%= City.find(user.city_id).name%></a>
+        published
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Title: <%= gossip.title%></li>
