@@ -17,14 +17,14 @@ puts "10 fakes cities generated."
 
 
 50.times do
-  User.create!(email: Faker::Internet.email, first_name: Faker::Name.first_name, city_id: City.all.sample.id)
+  User.create!(email: Faker::Internet.email, last_name: Faker::Name.last_name, age: [15..67].sample, first_name: Faker::Name.first_name, city_id: City.all.sample.id)
 end
 puts "50 fake user profiles generated."
 
 users = User.all.map{|u| u.id}
 users.each do |u|
   5.times do
-    Gossip.create!(user_id: u,
+    Gossip.create(user_id: u,
     content: Faker::Lorem.sentence,
     title: Faker::Book.title)
   end
