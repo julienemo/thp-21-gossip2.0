@@ -17,7 +17,7 @@ puts "10 fakes cities generated."
 
 
 50.times do
-  User.create!(email: Faker::Internet.email, last_name: Faker::Name.last_name, age: rand(15..100), first_name: Faker::Name.first_name, city_id: City.all.sample.id)
+  User.create!(email: Faker::Internet.email, description: ["", "A guy who codes", "The tiger in me sniffs rose"].sample, last_name: Faker::Name.last_name, age: rand(15..100), first_name: Faker::Name.first_name, city_id: City.all.sample.id)
 end
 puts "50 fake user profiles generated."
 
