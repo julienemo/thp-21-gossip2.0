@@ -18,7 +18,10 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><%= u.email%></li>
         <li class="list-group-item">From <%= u.city.name%></li>
-        <li class="list-group-item">author of <%= u.gossips.length%> gossips</li>
+        <li class="list-group-item">author of
+          <span class="badge badge-pill badge-dark"><%= u.gossips.length%></span>
+           gossips
+        </li>
       </ul>
     </div>
   </div>
