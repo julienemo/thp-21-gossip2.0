@@ -26,15 +26,13 @@
         <li class="list-group-item">On <%= stamp.to_date%></li>
       </ul>
     </div>
-    <p>Not exactly this? Update <a href="<%= edit_gossip_path %>">here</a>!
-    </p>
-    <p>Outrageously irrelevant?
-
+    <p>
+      <a href="<%= edit_gossip_path %>">Update</a>
       <!--Every resource I found online uses tag, dunno how it looks like without-->
       <!--the method: :delete stuff works with js. I had accidentally cleared the application js so it took a while-->
       <!--Normally gossips have associated join tables and comments-->
       <!--had to add dependent: :destroy to avoid ugly red error messages-->
-      Delete <%= link_to 'here', gossip_path(@id), method: :delete, data: { confirm: 'Are you sure?' } %>!
+      <%= link_to 'Detele', gossip_path(@id), method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
     <p>Have an opinion? Share with us!</p>
     <%= render partial: "comments/new"%>
