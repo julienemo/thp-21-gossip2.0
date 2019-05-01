@@ -8,23 +8,23 @@
 
 <body>
   <div class = "body">
-    <h1>Welcome to Gossip n°<%= @id%></h1>
-    <div>
-      <p>
-        <% gossip = Gossip.all.find(@id)%>
-        <% stamp = gossip.created_at.to_date%>
-        <% tags = gossip.tags.map{|t| t}%>
-        <br><br>
-          On <%= stamp.to_date%><br><br>
-          <a href = "/users/<%=gossip.user_id%>"><%= User.find(gossip.user_id).first_name%></a> says
-          "<%= gossip.content%>"<br><br>
-          Tags:
-          <%tags.uniq.each do |t|%>
-            <a href = "/tags/<%=t.id %>"><%= t.title%></a>,
-          <%end%>
-      </p><br />
-      <p>Don't like this one? <a href="/gossips/new">Create your own</a>!
-      </p>
+    <h1>Welcome to Gossip n°<%= @id%></h1><br /><br />
+    <div class="card" style="width: 18rem;">
+      <% gossip = Gossip.all.find(@id)%>
+      <% user = User.find(gossip.user_id)%>
+      <% stamp = gossip.created_at.to_date%>
+      <% tags = gossip.tags.map{|t| t}%>
+      <div class="card-header">
+        From
+        <a href = "/users/<%=gossip.user_id%>"><%= user.first_name%></a>
+        of
+        <a href = #><%= City.find(user.city_id).name%></a>:
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Title: <%= gossip.title%></li>
+        <li class="list-group-item">"<%= gossip.content%>"</li>
+        <li class="list-group-item">On <%= stamp.to_date%></li>
+      </ul>
     </div>
   </div>
 </body>
