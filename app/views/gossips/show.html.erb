@@ -16,15 +16,13 @@
       <% tags = gossip.tags.map{|t| t}%>
       <div class="card-header">
         <a href = "/users/<%=gossip.user_id%>">
-          <%= user.first_name%> <%= user.last_name%><%= user.age%>
-        </a>( yo)
-        of
-        <a href = #><%= City.find(user.city_id).name%></a>
-        published
+          <%= user.first_name%>
+        </a>
+        says
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Title: <%= gossip.title%></li>
-        <li class="list-group-item">"<%= gossip.content%>"</li>
+        <li class="list-group-item">Gossip: "<%= gossip.content%>"</li>
         <li class="list-group-item">On <%= stamp.to_date%></li>
       </ul>
     </div>
