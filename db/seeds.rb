@@ -1,6 +1,7 @@
 # depending tables need to be destroyed BEFORE depended tables
 # join tables always destroyed before tables to which they belong
-
+Biscomment.destroy_all
+Comment.destroy_all
 JoinTableMessageRecipient.destroy_all
 JoinTableGossipTag.destroy_all
 Message.destroy_all
@@ -23,7 +24,7 @@ puts "50 fake user profiles generated."
 
 users = User.all.map{|u| u.id}
 users.each do |u|
-  5.times do
+  10.times do
     Gossip.create(user_id: u,
     content: Faker::Lorem.sentence,
     title: Faker::Book.title)
@@ -65,3 +66,20 @@ messages.each do |m|
   end
 end
 puts "3 fake recipients generated per message"
+
+gossips.each do |g|
+  n = rand(1..5)
+  n.times do
+    Comment.create(gossip_id: g, author_id: users.sample, content: Faker::Quotes::Shakespeare.hamlet_quote)
+  end
+end
+puts "#{Comment.all.length} comments generated"
+
+comments = Comment.all.map{|c| c.id}
+comments.each do |c|
+  n = rand(1..5)
+  n.times do
+    Biscomment.create(comment_id: c, author_id: users.sample, content: Faker::Quotes::Shakespeare.as_you_like_it_quote)
+  end
+end
+puts "#{Biscomment.all.length} comments on comments (biscomments) generated"

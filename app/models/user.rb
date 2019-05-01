@@ -7,4 +7,13 @@ has_many :sent_messages,
 has_many :received_messages,
   foreign_key: 'recipient_id',
   class_name: "JoinTableMessageRecipient"
+has_many :comments,
+  foreign_key: 'author_id',
+  class_name: 'Comment'
+has_many :biscomments,
+  foreign_key: 'author_id',
+  class_name: 'Biscomment'
+has_many :biscomments,
+  through: :comments
+
 end
