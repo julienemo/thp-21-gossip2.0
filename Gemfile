@@ -9,6 +9,7 @@ gem 'rails', '~> 5.2.3'
 
 gem 'faker'
 gem 'table_print'
+gem 'pry'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
