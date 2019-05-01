@@ -1,4 +1,10 @@
-<ul class="list-group" style="width:30%">
-  <li class="list-group-item "><a href="/users/<%= c.author_id%>"><%=User.all.find(c.author_id).first_name %></a> says on <%= c.created_at.to_date%></li>
-  <li class="list-group-item ">"<%= c.content%>" <br/><br /><a href="#  ">Modify</a><br/><a href="#">Delete</a></li>
-</ul>
+<p>See what they say</p>
+
+<div class="d-flex flex-wrap flex-wrap-reverse justify-content-around">
+  <% comments.each do |c| %>
+    <ul class="list-group col-3.5 " style="width:30%;">
+      <li class="list-group-item "><a href="/users/<%= c.author_id%>"><%=User.all.find(c.author_id).first_name %></a> says on <%= c.created_at.to_date%></li>
+      <li class="list-group-item ">"<%= c.content%>" <br/><br /><a href="#  ">Modify</a><br/><a href="#">Delete</a></li>
+    </ul><br />
+  <% end %>
+<div>
