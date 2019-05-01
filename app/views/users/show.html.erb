@@ -9,15 +9,17 @@
 
 <body>
   <div class = "body">
-    <h1>Personal detail of User n°<%= @id%></h1>
-    <div>
-      <p>
-        <%u = User.find(@id)%>
-        First name: <%= u.first_name%><br>
-        Email: <%= u.email%><br>
-        Location: <%= u.city.name%><br>
-        Gossips: <%= u.gossips.length%>
-      </p>
+    <h1>User details</h1><br /><br />
+    <div class="card" style="width: 18rem;">
+      <%u = User.find(@id)%>
+      <div class="card-header">
+        ID <%= @id%>: <%= u.first_name%>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= u.email%></li>
+        <li class="list-group-item">From <%= u.city.name%></li>
+        <li class="list-group-item">author of <%= u.gossips.length%> gossips</li>
+      </ul>
     </div>
   </div>
 </body>

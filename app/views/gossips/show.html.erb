@@ -14,7 +14,7 @@
         <% gossip = Gossip.all.find(@id)%>
         <% stamp = gossip.created_at.to_date%>
         <% tags = gossip.tags.map{|t| t}%>
-        Gossip <%=@id %><br><br>
+        <br><br>
           On <%= stamp.to_date%><br><br>
           <a href = "/users/<%=gossip.user_id%>"><%= User.find(gossip.user_id).first_name%></a> says
           "<%= gossip.content%>"<br><br>
