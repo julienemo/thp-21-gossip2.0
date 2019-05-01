@@ -20,19 +20,23 @@
       </p>
     </div>
 
-    <p>Have a look at our <strong><%= Gossip.all.length%></strong> burning hot GOSSIPS or <a href="/gossips/new">create one of your own</a>!</p>
+    <p>Have a look at our <%= Gossip.all.length%> burning hot GOSSIPS or <a href="/gossips/new">create one of your own</a>!</p>
     <p><br><br></p>
     <div class = "d-flex flex-wrap flex-wrap-reverse justify-content-around">
       <% Gossip.all.each do |g| %>
-        <% stamp = g.created_at.to_date %>
         <div class="card col-md-3.05">
           <div class="card-body d-flex flex-column justify-content-between">
             <div class= 'col'>
-              <h5 class="card-title">"<%= g.content %>"</h5>
               <p  class="card-text">Gossip <%= g.id %>
 
-                <span class="badge badge-primary badge-pill"><%= g.comments.length%></span>
-
+              <h5 class="card-title">"<%= g.content %>"</h5>
+              <p  class="card-text">
+                says <a href="/users/<%= g.user_id%>"><%= User.find(g.user_id).first_name%></a>
+              </p>
+              <p>
+                <span class="badge badge-primary badge-pill"> <%= g.comments.length %>
+                </span>
+                comments
               </p>
             </div>
 

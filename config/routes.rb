@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'biscomments/new'
+  get 'biscomments/create'
+  get 'biscomments/index'
+  get 'biscomments/show'
+  get 'biscomments/destroy'
+  get 'biscomments/update'
+  get 'comments/new'
+  get 'comments/create'
+  get 'comments/index'
+  get 'comments/show'
+  get 'comments/destroy'
+  get 'comments/update'
   resources :cities, only:[:show]
   resources :gossips do
     resources :comments
