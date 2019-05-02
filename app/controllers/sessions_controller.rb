@@ -9,8 +9,11 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = "Hey #{user.first_name}, how are you doing ?"
       redirect_to "/profile"
+    elsif not user
+      flash[:danger] = "This email is not registered. Absolutely not."
+      render '/users/new'
     else
-      flash.now[:danger] = 'Naaa, incorrect email or password >< '
+      flash[:danger] = 'Naaa, incorrect password >< '
       render 'new'
     end
   end
