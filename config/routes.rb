@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'profiles/show'
-  resources :cities, only:[:show]
   resources :gossips do
     resources :comments do
       resources :biscomments
@@ -9,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only:[:new, :create, :destroy]
-  resources :users, only:[:show, :new, :create]
+  resources :users, only:[:show, :new, :create, :update, :edit]
   resources :tags, only:[:show]
 
   get '/index', to: 'static_pages#index'

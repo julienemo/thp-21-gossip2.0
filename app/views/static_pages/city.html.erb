@@ -15,6 +15,7 @@
 
     <div>
       <p>See who said what in <%= city.name %>:</p>
+      <!--<p>Not your city? <%= link_to "Complete your profile", edit_user_path(current_user.id) %></p>-->
       <div class = "d-flex flex-wrap flex-wrap-reverse justify-content-around">
         <% gossips = city.gossips %>
         <%= render partial: "gossips/list", locals:{gossips: gossips}%>
