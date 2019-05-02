@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(first_name: params[:first_name].capitalize,
-      city_id: City.last.id,
+      city_id: params[:city_id],
       email: params[:email],
       password: params[:password],
       password_confirmation: params[:password_confirmation])
