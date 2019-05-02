@@ -3,7 +3,10 @@ ul
   list-style: none;
 }
 
-
+.btn
+{
+  padding: 0px 4px;
+}
 
 .body
 {

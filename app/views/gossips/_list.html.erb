@@ -15,12 +15,10 @@
           comments
         </p>
         <%if current_user%>
-        <div>
-          <span >
-          	<%= button_to 'Like', gossip_likes_path(g.id, params[:id]), method: :post, class:"btn-primary btn" %>
-          </span>
-          <p><%= g.likes.count %> <%= (g.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-        </div>
+        <p>
+          <%= button_to 'Like', gossip_likes_path(g.id, params[:id]), method: :post, style: "margin-left:138px;",class:"btn-primary btn" %>
+          <span style="margin-left:120px;"><%= g.likes.count %> <%= (g.likes.count) == 1 ? 'Like' : 'Likes'%></span>
+        </p>
         <% end %>
       </div>
 
