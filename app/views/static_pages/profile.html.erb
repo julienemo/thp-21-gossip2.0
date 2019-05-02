@@ -11,16 +11,21 @@
   <div class = "body">
     <h1>ID <%= current_user.id%>: <%= current_user.first_name%></h1>
     <br /><br />
-    <% unless current_user.age && current_user.last_name && current_user.description %>
-    <p>Complete your profile</p>
+    <% if Gossip.all.where(user_id: current_user.id).length > 0%>
+      <p>These are your gossips</p><br /><br />
+      <%= render partial: "gossips/list", locals:{gossips: Gossip.all.where(user_id:current_user.id)}%>
+      <p><a href="/gossips/new">Gossip more!</a></p>
+    <% else %>
+      <p>You have no gossips yet....</p>
+      <p><a href="/gossips/new">Start gossiping</a></p>    <br /><br />
+
     <% end %>
-    <%= link_to "Explore your city", session_path(session[:user_id]), method: :delete %>
-    <br /><br />
-    <%= link_to "Start gossiping", session_path(session[:user_id]), method: :delete %>
-    <br /><br />
-    <br /><br />
+
+    <% unless current_user.age && current_user.last_name && current_user.description %>
+    <p style="color:white;">Complete your profile</p>
+    <% end %>
+    <p><a href="/mycity">Explore your city</a></p>    <br /><br />
+
     <%= link_to "Log out", session_path(session[:user_id]), method: :delete %>
-    <p>All your gossips </p>
-    <%= render partial:"gossips/list",locals: {gossips: Gossip.all.where(user_id: current_user.id)} %>
   </div>
 </body>

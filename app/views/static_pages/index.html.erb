@@ -10,7 +10,7 @@
 <body>
   <div class = "body">
     <% if current_user%>
-      <h1>Hello <%= current_user.first_name%>, welcome to Gossip Project 2.0</h1>
+      <h1>Hello <a href="profile"><%= current_user.first_name%></a>, welcome to Gossip Project 2.0</h1>
       <div>
       <p>New features:
         <ul>
