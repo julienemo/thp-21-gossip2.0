@@ -12,7 +12,7 @@
     <div>
       <h1>Modify gossip n°<%= @id%></h1>
       <% holders = [@gossip.title, @gossip.content] %>
-      <%= render partial: "form", locals:{holders: holders} %>
+      <%= render partial: "form", locals:{holders: holders, action: "update", method: "put"} %>
     </div>
   </div>
 </body>

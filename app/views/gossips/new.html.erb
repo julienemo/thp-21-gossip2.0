@@ -12,7 +12,7 @@
     <div>
       <h1>This is to create your own gossip </h1>
       <% holders = ["ex: Huge Scoop!", ""] %>
-      <%= render partial: "form", locals:{holders: holders} %>
+      <%= render partial: "form", locals:{holders: holders, action: "create", method:"post"} %>
     </div>
   </div>
 </body>
