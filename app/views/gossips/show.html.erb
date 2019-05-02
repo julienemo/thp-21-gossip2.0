@@ -26,7 +26,7 @@
         <li class="list-group-item">On <%= stamp.to_date%></li>
       </ul>
     </div>
-    <%if current_user.id == user.id%>
+    <%if current_user && current_user.id == user.id%>
     <p>
       <a href="<%= edit_gossip_path %>">Update</a>
       <!--Every resource I found online uses tag, dunno how it looks like without-->
@@ -36,8 +36,13 @@
       <%= link_to 'Detele', gossip_path(@id), method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
     <% end %>
-    <p>Have an opinion? Share with us!</p>
-    <%= render partial: "comments/new"%>
+
+    <% if current_user %>
+      <p>Have an opinion? Share with us!</p>
+      <%= render partial: "comments/new"%>
+    <% else %>
+      <p>Have an opinion? <a href = "/sessions/new">Log in</a> and share with us!</p>
+    <% end %>
 
     <% comments = Comment.all.where(gossip_id:@id) %>
     <%= render partial: "comments/index", locals: {comments: comments} %>

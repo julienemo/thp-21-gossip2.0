@@ -7,7 +7,7 @@
         <a href="/users/<%= c.author_id %>"><%=User.all.find(c.author_id).first_name %></a>
         says on <%= c.created_at.to_date%></li>
       <li class="list-group-item ">"<%= c.content %>" <br/><br />
-        <% if current_user.id == c.author_id%>
+        <% if current_user && current_user.id == c.author_id%>
           <a href="<%=edit_gossip_comment_path(id: c.id, gossip_id: params[:id])%>" >Modify</a><br/>
           <%= link_to "Delete", gossip_comment_path(gossip_id: @id, id: c.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
         <% end %>

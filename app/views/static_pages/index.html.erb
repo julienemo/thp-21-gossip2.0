@@ -20,7 +20,12 @@
       </p>
     </div>
 
-    <p>Have a look at our <%= Gossip.all.length%> burning hot GOSSIPS or <a href="/gossips/new">create one of your own</a>!</p>
+    <% n = Gossip.all.length%>
+    <% if current_user %>
+      <p>Have a look at our <%= n%> burning hot GOSSIPS or <a href="/gossips/new">create one of your own</a>!</p>
+    <% else %>
+      <p>Have a look at our <%= n%> burning hot GOSSIPS or <a href="/sessions/new">log in</a> to create your own!</p>
+    <% end %>
     <p><br><br></p>
     <div class = "d-flex flex-wrap flex-wrap-reverse justify-content-around">
       <%= render partial: "gossips/list", locals:{gossips: Gossip.all}%>

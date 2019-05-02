@@ -19,11 +19,16 @@
         </ul>
       </p>
     </div>
+    <% n = Gossip.all.length%>
+    <% if current_user %>
+      <p>Have a look at our <%= n%> burning hottt GOSSIPS or <a href="/gossips/new">create one of your own</a>!</p>
+    <% else %>
+      <p>Have a look at our <%= n%> burning hot GOSSIPS or <a href="/sessions">log in</a> to create your own!</p>
+    <% end %>
 
-    <p>Have a look at our <strong><%= Gossip.all.length%></strong> burning hot GOSSIPS or <a href="/gossips/new">create one of your own</a>!</p>
     <p><br><br></p
     <% gossips = Gossip.all%>
-    
+
     <div class = "d-flex flex-wrap flex-wrap-reverse justify-content-around">
       <% gossips.each do |g| %>
         <% stamp = g.created_at.to_date %>
