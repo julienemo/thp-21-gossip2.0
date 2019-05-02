@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :password, length: {in: 6..12}
   validates :email, uniqueness: true
+  validates :first_name, presence: true
 
   belongs_to :city
   has_many :gossips
