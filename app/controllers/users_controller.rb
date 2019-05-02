@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       password_confirmation: params[:password_confirmation])
     if user.save
       flash[:success] = "Welcome #{user.first_name}, you're now one of us!"
-      redirect_to '/index'
+      redirect_to '/sessions/new'
     else
       flash[:danger] = "#{user.errors.messages.keys[0]} #{user.errors.messages.values[0][0]}"
       puts user.errors
