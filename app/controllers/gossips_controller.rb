@@ -5,7 +5,7 @@ class GossipsController < ApplicationController
   end
 
   def create
-    id = User.last.id
+    id = current_user.id
     @gossip = Gossip.new(title: params[:title], user_id: id, content: params[:content])
     if @gossip.save
       flash[:success] = "Gossip created! Yours is the best!"

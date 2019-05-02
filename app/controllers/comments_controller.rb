@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment = Comment.new(author_id: User.last.id, gossip_id: params[:gossip_id], content: params[:c_content])
+    comment = Comment.new(author_id:current_user.id, gossip_id: params[:gossip_id], content: params[:c_content])
     if comment.save
       flash[:success] = "Comment created"
     else

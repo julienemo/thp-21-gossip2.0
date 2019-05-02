@@ -26,6 +26,7 @@
         <li class="list-group-item">On <%= stamp.to_date%></li>
       </ul>
     </div>
+    <%if current_user.id == user.id%>
     <p>
       <a href="<%= edit_gossip_path %>">Update</a>
       <!--Every resource I found online uses tag, dunno how it looks like without-->
@@ -34,6 +35,7 @@
       <!--had to add dependent: :destroy to avoid ugly red error messages-->
       <%= link_to 'Detele', gossip_path(@id), method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
+    <% end %>
     <p>Have an opinion? Share with us!</p>
     <%= render partial: "comments/new"%>
 
