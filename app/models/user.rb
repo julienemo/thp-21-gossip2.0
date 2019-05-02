@@ -3,8 +3,6 @@ class User < ApplicationRecord
 
   validates :password, presence: true
   validates :password, length: {in: 6..12}
-  validates :first_name, presence: true
-  validates :last_name, presence: true
   validates :email, uniqueness: true
 
   belongs_to :city
@@ -23,5 +21,6 @@ class User < ApplicationRecord
     class_name: 'Biscomment'
   has_many :biscomments,
     through: :comments
+  has_many :sessions
 
 end
