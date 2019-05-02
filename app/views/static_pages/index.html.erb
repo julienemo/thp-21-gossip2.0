@@ -9,8 +9,9 @@
 
 <body>
   <div class = "body">
-    <h1>Welcome to the Gossip Project 2.0</h1>
-    <div>
+    <% if current_user%>
+      <h1>Hello <%= current_user.first_name%>, welcome to Gossip Project 2.0</h1>
+      <div>
       <p>New features:
         <ul>
           <li>We are now on Postgresql</li>
@@ -19,6 +20,11 @@
         </ul>
       </p>
     </div>
+    <% else %>
+      <h1>Welcome to the Gossip Project 2.0</h1>
+    <% end %>
+
+
 
     <% n = Gossip.all.length%>
     <% if current_user %>
