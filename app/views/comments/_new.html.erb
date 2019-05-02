@@ -3,6 +3,10 @@
   <%= text_area_tag 'c_content', nil, class: 'form-control'%>
   <br /> <br />
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <%= submit_tag "Submit", class: 'btn btn-primary' %>
+  <% if current_user%>
+    <%= submit_tag "Submit", class: 'btn btn-primary' %>
+  <% else %>
+    <a class="btn btn-primary" href="/sessions/new">Submit</a>
+  <% end %>
 <% end %>
 <br/><br/>

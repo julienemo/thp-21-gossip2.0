@@ -37,12 +37,8 @@
     </p>
     <% end %>
 
-    <% if current_user %>
-      <p>Have an opinion? Share with us!</p>
-      <%= render partial: "comments/new"%>
-    <% else %>
-      <p>Have an opinion? <a href = "/sessions/new">Log in</a> and share with us!</p>
-    <% end %>
+    <p>Have an opinion? Share with us!</p>
+    <%= render partial: "comments/new"%>
 
     <% comments = Comment.all.where(gossip_id:@id) %>
     <%= render partial: "comments/index", locals: {comments: comments} %>
