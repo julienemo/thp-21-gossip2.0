@@ -39,7 +39,6 @@
 
     <p>Have an opinion? Share with us!</p>
     <%= render partial: "comments/new"%>
-
     <% comments = Comment.all.where(gossip_id:@id) %>
     <%= render partial: "comments/index", locals: {comments: comments} %>
 

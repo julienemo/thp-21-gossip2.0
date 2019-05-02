@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get '/team', to: 'static_pages#team'
   get '/welcome/:id', to: 'welcome#show'
   get '/profile', to: 'static_pages#profile'
+  get '/mycity', to: 'static_pages#city'
 end

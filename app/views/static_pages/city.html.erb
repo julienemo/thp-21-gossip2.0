@@ -9,14 +9,14 @@
 
 <body>
   <div class = "body">
-    <% city = City.find(@id)%>
-    <h1>Welcome to <%= city.name %> (ID: <%= @id %>)</h1>
+    <% city = current_user.city%>
+    <h1>Welcome to <%= city.name %> (ID: <%= city.id %>)</h1>
     <br /><br />
 
     <div>
       <p>See who said what in <%= city.name %>:</p>
       <div class = "d-flex flex-wrap flex-wrap-reverse justify-content-around">
-        <% gossips = City.find(@id).gossips %>
+        <% gossips = city.gossips %>
         <%= render partial: "gossips/list", locals:{gossips: gossips}%>
       </div>
     </div>
