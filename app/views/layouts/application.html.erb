@@ -18,35 +18,33 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding: 10px 20px;">
-        <% if current_user%>
-          <a class="navbar-brand" href="#">Gossip Project 2.0 - <%= current_user.first_name%></a>
-        <% else %>
-          <a class="navbar-brand" href="#">Gossip Project 2.0</a>
-        <% end %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/index">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/team">Team</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact">Contact</a>
-            </li>
+        <ul class="form-inline">
+          <% if current_user%>
+            <li><a class="navbar-brand" href="#">Gossiping <%= current_user.first_name%></a></li>
+          <% else %>
+            <li><a class="navbar-brand" href="#">Gossip Project 2.0</a></li>
+          <% end %>
+          <li><a class="nav-link" href="/index">Home</a></li>
+          <li><a class="nav-link" href="/team">Team</a></li>
+          <li><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
             <% if current_user %>
-              <li class="nav-item">
-                <%= link_to 'Sign out', session_path(session[:user_id]), method: :delete, data: { confirm: 'Are you sure?' },class: "nav-link" %>
+            <ul class="form-inline">
+              <li class="nav-item btn btn-primary">
+                <%= link_to 'Sign out', session_path(session[:user_id]), method: :delete, data: { confirm: 'Are you sure?' },class: "nav-link", style: "color: #fff;" %>
               </li>
+            </ul>
             <% else %>
-              <li class="nav-item">
-                <a class="nav-link" href="/users/new">Sign up</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto form-inline">
+              <li class="nav-item btn">
+                <a class="nav-link" href="/users/new" style="color: #000;">Sign up</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/sessions/new">Sign in</a>
+              <li class="nav-item btn">
+                <a class="nav-link" href="/sessions/new"style="color: #000;">Sign in</a>
               </li>
             <% end %>
           </ul>
