@@ -6,6 +6,13 @@ Rails.application.routes.draw do
     end
   end
 
+
+resources :gossips do
+  	member do
+  		post 'like'
+  	end
+end
+
   resources :sessions, only:[:new, :create, :destroy]
   resources :users, only:[:show, :new, :create, :update, :edit]
   resources :tags, only:[:show]
