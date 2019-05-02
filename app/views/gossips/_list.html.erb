@@ -14,11 +14,14 @@
           </span>
           comments
         </p>
-        <p>
-          <span class="badge badge-primary badge-pill"> 0
+        <%if current_user%>
+        <div>
+          <span >
+          	<%= button_to 'Like', gossip_likes_path(g.id, params[:id]), method: :post, class:"btn-primary btn" %>
           </span>
-          likes
-        </p>
+          <p><%= g.likes.count %> <%= (g.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+        </div>
+        <% end %>
       </div>
 
       <!--all divs have 'flex-grow-1' by default-->

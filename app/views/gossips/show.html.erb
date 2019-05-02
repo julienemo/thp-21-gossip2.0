@@ -26,7 +26,19 @@
         <li class="list-group-item">On <%= stamp.to_date%></li>
       </ul>
     </div>
+    <div>
+
+    <% if current_user%>
+    <span >
+      <%= button_to 'Like', gossip_likes_path(gossip.id, params[:id]), method: :post, class:"btn btn-primary" %>
+    </span>
+    <p><%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+    <% end%>
+
+
     <%if current_user && current_user.id == user.id%>
+  </div>
     <p>
       <a href="<%= edit_gossip_path %>">Update</a>
       <!--Every resource I found online uses tag, dunno how it looks like without-->

@@ -7,8 +7,8 @@ class User < ApplicationRecord
   validates :first_name, presence: true
 
   belongs_to :city
-  has_many :gossips
-  has_many :likes
+  has_many :gossips, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :sent_messages,
     foreign_key: 'sender_id',
     class_name: "Message"
