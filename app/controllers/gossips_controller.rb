@@ -9,7 +9,7 @@ class GossipsController < ApplicationController
     @gossip = Gossip.new(title: params[:title], user_id: id, content: params[:content])
     if @gossip.save
       flash[:success] = "Gossip created! Yours is the best!"
-      redirect_to "/index"
+      redirect_to "/gossips/#{@gossip.id}"
     else
       flash[:danger] = "Creation failed. Did you check all the conditions?"
       render "new"
