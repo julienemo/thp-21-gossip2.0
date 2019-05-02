@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-   skip_before_action :verify_authenticity_token
-
   def show
     @id = params[:id].to_i
   end
