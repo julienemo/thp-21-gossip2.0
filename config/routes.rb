@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'profiles/show'
   resources :cities, only:[:show]
   resources :gossips do
     resources :comments do
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   resources :sessions, only:[:new, :create, :destroy]
   resources :users, only:[:show, :new, :create]
   resources :tags, only:[:show]
+  resources :profiles, only:[:show]
 
   get '/index', to: 'static_pages#index'
   get '/contact', to: 'static_pages#contact'
