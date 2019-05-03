@@ -53,5 +53,6 @@ module SessionsHelper
 
   def log_out
     forget(current_user)
+    @current_user = nil
   end
 end

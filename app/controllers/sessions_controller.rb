@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out
     session.delete(:user_id)
     flash[:success] = 'You have safely logged out.'
     redirect_to "/index"
