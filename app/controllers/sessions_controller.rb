@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      remember(user)
       flash[:success] = "Hey #{user.first_name}, how are you doing ?"
       redirect_to "/index"
     elsif not user
