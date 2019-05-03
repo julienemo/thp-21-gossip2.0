@@ -1,4 +1,4 @@
-<% gossips.all.each do |g| %>
+<% gossips.includes(:user, :comments, :likes).each do |g| %>
 
   <div class="card col-md-3.05">
     <div class="card-body d-flex flex-column justify-content-between">
@@ -7,14 +7,14 @@
 
         <h5 class="card-title">"<%= g.content %>"</h5>
         <p  class="card-text">
-          says <a href="/users/<%= g.user_id%>"><%= User.find(g.user_id).first_name%></a>
+          says <a href="/users/<%= g.user_id%>"><%= g.user.first_name%></a>
         </p>
       </div>
       <div class = 'col flex-grow-0'>
-        <span class="incard"> <%= g.comments.length %> comments</span>
+        <span class="incard"> <%= g.comments.length %> comment(s)</span>
         <%if current_user%>
           <%= button_to 'Like', gossip_likes_path(g.id, params[:id]), method: :post,class:"btn-primary btn" %>
-          <span class="incard"><%= g.likes.count %> <%= (g.likes.count) == 1 ? 'Like' : 'Likes'%></span>
+          <span class="incard"><%= g.likes.length %> like(s) </span>
         <% end %>
       <!--all divs have 'flex-grow-1' by default-->
       <!--in vertical alignment they grow proportionally to take all available place-->
